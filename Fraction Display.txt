@@ -1,0 +1,76 @@
+class Fraction:
+    def __init__(self,n,d):
+        self.num=n       #n=numerator 
+        self.den=d       #d=denominator
+        
+
+    def __str__(self):    #
+        return "{}/{}".format(self.num,self.den)
+
+    def __add__(self,other):  #addition  (x+y)
+        temp_num=self.num*other.den+other.num*self.den
+        temp_den=self.den*other.den
+        return "{}/{}".format(temp_num,temp_den)
+
+
+    def __sub__(self,other):     #subtraction  (x-y)
+        temp_num=self.num*other.den-other.num*self.den
+        temp_den=self.den*other.den
+        return "{}/{}".format(temp_num,temp_den)
+
+    def __mul__(self,other):     #multipication  (x*y)
+        temp_num=self.num*other.num
+        temp_den=self.den*other.den
+        return "{}/{}".format(temp_num,temp_den)
+
+
+def input_value(n):
+    
+    print("*****Note:-denominator can not be zero****")
+    
+    a=int(input("Enter numerator value"))
+    b=int(input("Enter denominator value"))
+    
+    x=Fraction(a,b)
+    print("you enter x=",x,"\n")
+    
+    c=int(input("Enter second value"))
+    d=int(input("Enter second value"))
+    
+    y=Fraction(c,d)
+    print("you enter y=",y,"\n")
+
+   
+    if n==1:
+        print("Addition of ",x,"+",y,"=",x+y)
+        
+    elif n==2:
+        print("Subtraction of ",x,"-",y,"=",x-y)
+    else:
+        print("Multiplication of ",x,"*",y,"=",x*y)
+    
+
+def user_input():
+    print("Fraction method solution x/y")
+    user_input=input("""Enter
+    1.For Addition x+y
+    2.For Subtraction x-y
+    3.for Multiplication x*y
+    Any key for exit \n """)
+
+    if user_input=="1":
+        input_value(1)
+
+    elif user_input=="2":
+        input_value(2)
+
+    elif user_input=="3":
+        input_value(3)
+
+    
+    else:
+        print("Bay")
+        
+
+
+user_input()
